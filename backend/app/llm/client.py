@@ -1,6 +1,6 @@
 
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
-from app.config import LLM_MODEL, NVIDIA_API_KEY, GROQ_API_KEY
+from app.config import LLM_MODEL, NVIDIA_API_KEY, GROQ_API_KEY, REQUEST_TIMEOUT
 from langchain_groq import ChatGroq
 
 
@@ -18,6 +18,7 @@ class LLMClient:
             api_key=NVIDIA_API_KEY,
             temperature=0.2,
             max_tokens=4096,
+            timeout=REQUEST_TIMEOUT,
         )
 
 
