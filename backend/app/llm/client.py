@@ -17,7 +17,7 @@ class LLMClient:
             model=LLM_MODEL,
             api_key=NVIDIA_API_KEY,
             temperature=0.2,
-            max_tokens=4096,
+            max_tokens=2048,
             timeout=REQUEST_TIMEOUT,
         )
 
