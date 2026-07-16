@@ -52,16 +52,24 @@ builder.add_conditional_edges(
 builder.add_edge("research", "evidence")
 
 
+# builder.add_edge("evidence", "overview")
+# builder.add_edge("evidence", "business")
+# builder.add_edge("evidence", "challenges")
+# builder.add_edge("evidence", "ai_opportunities")
+
+
 builder.add_edge("evidence", "overview")
-builder.add_edge("evidence", "business")
-builder.add_edge("evidence", "challenges")
-builder.add_edge("evidence", "ai_opportunities")
-
-
-builder.add_edge("overview", "ceo_pitch")
-builder.add_edge("business", "ceo_pitch")
-builder.add_edge("challenges", "ceo_pitch")
+builder.add_edge("overview", "business")
+builder.add_edge("business", "challenges")
+builder.add_edge("challenges", "ai_opportunities")
 builder.add_edge("ai_opportunities", "ceo_pitch")
+
+# builder.add_edge("overview", "ceo_pitch")
+# builder.add_edge("business", "ceo_pitch")
+# builder.add_edge("challenges", "ceo_pitch")
+# builder.add_edge("ai_opportunities", "ceo_pitch")
+
+
 builder.add_edge("ceo_pitch", "report")
 builder.add_edge("report", END)
 
