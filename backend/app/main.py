@@ -1,8 +1,6 @@
 from fastapi import FastAPI
-
 from app.api.routes import router
-
-
+import os
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -12,7 +10,7 @@ app = FastAPI(
 
 
 # FRONTEND_URL = os.environ.get("FRONTEND_URL")
-FRONTEND_URL = "http://localhost:5173"
+FRONTEND_URL = os.environ.get("FRONTEND_URL")
 
 
 app.add_middleware(
