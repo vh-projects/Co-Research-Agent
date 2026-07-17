@@ -44,7 +44,7 @@ def research_node(state: ResearchState) -> ResearchState:
     key=lambda x: x.score or 0,
     reverse=True,)
 
-    all_results = all_results[:8]
+    all_results = all_results[:5]
 
     return {
         "progress": "Research completed.",
