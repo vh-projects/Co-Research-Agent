@@ -7,7 +7,9 @@ NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 GROQ_API_KEY= os.getenv("GROQ_API_KEY")
 
-LLM_MODEL = "meta/llama-3.2-3b-instruct"
+# LLM_MODEL = "meta/llama-3.2-3b-instruct"
+LLM_MODEL= "openai/gpt-oss-120b"
+# LLM_MODEL= "openai/gpt-oss-20b"
 
 MAX_SEARCH_RESULTS = 5
 
