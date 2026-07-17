@@ -9,7 +9,7 @@ GROQ_API_KEY= os.getenv("GROQ_API_KEY")
 
 # LLM_MODEL = "meta/llama-3.2-3b-instruct"
 # LLM_MODEL= "openai/gpt-oss-120b"
-LLM_MODEL= "meta/llama-3.3-70b-instruct"
+LLM_MODEL= "meta/llama-3.2-1b-instruct"
 
 MAX_SEARCH_RESULTS = 5
 
