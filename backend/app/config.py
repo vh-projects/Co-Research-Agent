@@ -9,7 +9,7 @@ GROQ_API_KEY= os.getenv("GROQ_API_KEY")
 
 # LLM_MODEL = "meta/llama-3.2-3b-instruct"
 # LLM_MODEL= "openai/gpt-oss-120b"
-LLM_MODEL= "nvidia/llama-3.3-nemotron-super-49b-v1.5"
+LLM_MODEL= "qwen/qwen3.5-122b-a10b"
 
 MAX_SEARCH_RESULTS = 5
 
