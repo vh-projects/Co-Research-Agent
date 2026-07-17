@@ -28,7 +28,7 @@ class TavilyService:
                 SearchResult(
                     title=item.get("title", ""),
                     url=item.get("url", ""),
-                    content=item.get("content", "")[:250],
+                    content=item.get("content", "")[:350],
                     score=item.get("score"),
                 )
             )
