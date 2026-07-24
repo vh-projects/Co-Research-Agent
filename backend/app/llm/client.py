@@ -1,4 +1,4 @@
-
+# app/llm/client
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from app.config import LLM_MODEL, NVIDIA_API_KEY, GROQ_API_KEY, REQUEST_TIMEOUT
 from langchain_groq import ChatGroq
@@ -6,20 +6,19 @@ from langchain_groq import ChatGroq
 
 class LLMClient:
     def __init__(self):
-        # self.client = ChatGroq(
-        #     model="llama-3.3-70b-versatile",
-        #     api_key=GROQ_API_KEY,
-        #     temperature=0.2,
-        #     max_tokens=2048,
-        #     timeout=120,
-        # )
-        self.client = ChatNVIDIA(
-            model=LLM_MODEL,
-            api_key=NVIDIA_API_KEY,
+        self.client = ChatGroq(
+            model="llama-3.3-70b-versatile",
+            api_key=GROQ_API_KEY,
             temperature=0.2,
             max_tokens=2048,
-            # timeout=REQUEST_TIMEOUT,
+            timeout=120,
         )
+        # self.client = ChatNVIDIA(
+        #     model=LLM_MODEL,
+        #     api_key=NVIDIA_API_KEY,
+        #     temperature=0.2,
+        #     max_tokens=2048,
+        # )
 
 
     def invoke(self, prompt: str) -> str:

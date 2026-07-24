@@ -7,13 +7,11 @@ NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 GROQ_API_KEY= os.getenv("GROQ_API_KEY")
 
-LLM_MODEL = "meta/llama-3.2-3b-instruct"
-
-
+LLM_MODEL = "meta/llama-3.3-70b-instruct"
 MAX_SEARCH_RESULTS = 5
 
 # MAX_CONTENT_LENGTH= 1000
-REQUEST_TIMEOUT = 120
+REQUEST_TIMEOUT = 60
 
 if not NVIDIA_API_KEY:
     raise ValueError("NVIDIA_API_KEY is missing.")

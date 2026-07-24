@@ -8,16 +8,11 @@ app = FastAPI(
     title="Company Research Agent",
 )
 
-
-# FRONTEND_URL = os.environ.get("FRONTEND_URL")
 FRONTEND_URL = os.environ.get("FRONTEND_URL")
-
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        FRONTEND_URL
-    ],
+    allow_origins=[FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
