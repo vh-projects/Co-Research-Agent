@@ -1,7 +1,6 @@
 # app/services/tavily_search
 
 from tavily import TavilyClient
-
 from app.config import MAX_SEARCH_RESULTS, TAVILY_API_KEY
 from app.models.search import SearchResult
 

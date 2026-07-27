@@ -51,7 +51,7 @@ export default function SearchBar({ loading, setLoading, setProgress, setReport 
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           onKeyDown={(e) => e.key === "Enter" && handleResearch()}
-          placeholder="e.g. Stripe, Anthropic, Shopify..."
+          placeholder="e.g. Sony, Anthropic, Shopify..."
           className="flex-1 bg-transparent text-[15px] text-fg outline-none placeholder:text-fg-faint"
         />
 

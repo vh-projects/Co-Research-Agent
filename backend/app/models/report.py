@@ -10,14 +10,9 @@ from app.models.pitch import CEOPitch
 
 class CompanyReport(BaseModel):
     evidence: Evidence
-
     overview: CompanyOverview
-
     business: BusinessAnalysis
-
     challenges: Challenges
-
     ai_opportunities: AIOpportunities
-
     ceo_pitch: CEOPitch
 

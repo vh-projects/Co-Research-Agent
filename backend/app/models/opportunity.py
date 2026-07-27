@@ -3,13 +3,9 @@ from pydantic import BaseModel, Field
 
 class AIOpportunity(BaseModel):
     title: str
-
     description: str
-
     business_value: str
-
     implementation_complexity: str
-
     priority: str
 
 

@@ -2,8 +2,7 @@ export default function GeneratingState() {
     return (
         <div className="space-y-4">
             {[0, 1, 2].map((i) => (
-                <div
-                    key={i}
+                <div key={i}
                     className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6"
                     style={{ animationDelay: `${i * 80}ms` }}
                 >
