@@ -2,7 +2,7 @@ from app.llm.client import llm
 from app.llm.prompts import build_evidence_prompt
 from app.models.evidence import Evidence
 from app.state import ResearchState
-from app.utils.json_parser import extract_json
+from app.utils.json_parser import extract_json, normalize_json
 
 
 def evidence_node(state: ResearchState) -> ResearchState:
@@ -23,6 +23,9 @@ def evidence_node(state: ResearchState) -> ResearchState:
     response = llm.invoke(prompt)
 
     data = extract_json(response)
+    data = normalize_json(data)
+
+    
 
     evidence = Evidence.model_validate(data)
 

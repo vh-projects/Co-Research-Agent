@@ -63,3 +63,35 @@ def extract_json(response: str) -> dict[str, Any] | list[Any]:
         "Could not extract valid JSON from the LLM response."
     )
 
+def normalize_json(data: dict) -> dict:
+    """
+    Normalize common LLM output mistakes before Pydantic validation.
+    """
+
+    for key, value in list(data.items()):
+
+        if value is None:
+            continue
+
+        # LLM returned [] instead of ""
+        if isinstance(value, list) and len(value) == 0:
+            if key not in {
+                "geographic_presence",
+                "products_services",
+                "technologies_used",
+                "recent_news",
+                "key_observations",
+                "target_market",
+                "strengths",
+                "core_operations",
+                "revenue_streams",
+                "customer_segments",
+                "operational_workflow",
+                "challenges",
+                "opportunities",
+                "recommended_ai_initiatives",
+                "expected_business_impact",
+            }:
+                data[key] = ""
+
+    return data
