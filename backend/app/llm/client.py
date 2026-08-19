@@ -53,8 +53,6 @@
 
 
 
-
-
 from langchain_groq import ChatGroq
 
 from app.config import GROQ_API_KEY
@@ -66,13 +64,35 @@ class LLMClient:
             model="openai/gpt-oss-120b",
             api_key=GROQ_API_KEY,
             temperature=0.2,
-            # max_tokens=2048,
+            max_tokens=2048,
             timeout=120,
             reasoning_effort="low",
         )
 
-    def invoke(self, prompt: str):
-        return self.client.invoke(prompt)
+    def invoke(self, prompt: str) -> str:
+        response = self.client.invoke(prompt)
+
+        content = response.content
+
+        if isinstance(content, str):
+            return content.strip()
+
+        if isinstance(content, list):
+            parts = []
+
+            for item in content:
+                if isinstance(item, str):
+                    parts.append(item)
+
+                elif isinstance(item, dict):
+                    text = item.get("text")
+
+                    if text:
+                        parts.append(text)
+
+            return "\n".join(parts).strip()
+
+        return str(content).strip()
 
     def structured(self, model):
         return self.client.with_structured_output(

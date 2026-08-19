@@ -28,10 +28,10 @@
     
 
 
-
-
 from typing import Type, TypeVar
+
 from pydantic import BaseModel
+
 from app.llm.client import llm
 
 
@@ -44,9 +44,6 @@ def generate_structured_output(
 ) -> T:
     """
     Generate a Pydantic object using the LLM's structured-output mode.
-
-    The Pydantic model is sent to the LLM as the expected JSON schema,
-    so the model is constrained to return the correct structure.
     """
 
     structured_llm = llm.structured(model)
