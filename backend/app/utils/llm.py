@@ -1,28 +1,54 @@
-# app/utils/llm
+# # app/utils/llm
+
+# from typing import Type, TypeVar
+# from pydantic import BaseModel
+# from app.llm.client import llm
+# from app.utils.json_parser import extract_json
+
+# T = TypeVar("T", bound=BaseModel)
+
+
+# def generate_structured_output(
+#     prompt: str, model: Type[T],
+# ) -> T:
+#     """
+#     Generate a structured Pydantic object from an LLM prompt.
+
+#     Steps:
+#     1. Invoke the LLM
+#     2. Extract JSON
+#     3. Validate with Pydantic
+#     """
+
+#     response = llm.invoke(prompt)
+#     data = extract_json(response)
+
+#     return model.model_validate(data)
+    
+    
+
+
+
 
 from typing import Type, TypeVar
 from pydantic import BaseModel
 from app.llm.client import llm
-from app.utils.json_parser import extract_json
+
 
 T = TypeVar("T", bound=BaseModel)
 
 
 def generate_structured_output(
-    prompt: str, model: Type[T],
+    prompt: str,
+    model: Type[T],
 ) -> T:
     """
-    Generate a structured Pydantic object from an LLM prompt.
+    Generate a Pydantic object using the LLM's structured-output mode.
 
-    Steps:
-    1. Invoke the LLM
-    2. Extract JSON
-    3. Validate with Pydantic
+    The Pydantic model is sent to the LLM as the expected JSON schema,
+    so the model is constrained to return the correct structure.
     """
 
-    response = llm.invoke(prompt)
-    data = extract_json(response)
+    structured_llm = llm.structured(model)
 
-    return model.model_validate(data)
-    
-    
+    return structured_llm.invoke(prompt)

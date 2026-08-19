@@ -1,51 +1,84 @@
-# app/llm/client
-# from langchain_nvidia_ai_endpoints import ChatNVIDIA
-from app.config import LLM_MODEL, NVIDIA_API_KEY, GROQ_API_KEY, REQUEST_TIMEOUT
+# # app/llm/client
+# # from langchain_nvidia_ai_endpoints import ChatNVIDIA
+# from app.config import LLM_MODEL, NVIDIA_API_KEY, GROQ_API_KEY, REQUEST_TIMEOUT
+# from langchain_groq import ChatGroq
+
+
+# class LLMClient:
+#     def __init__(self):
+#         self.client = ChatGroq(
+#             # model="llama-3.3-70b-versatile",
+#             model="openai/gpt-oss-120b",
+#             api_key=GROQ_API_KEY,
+#             temperature=0.2,
+#             max_tokens=2048,
+#             timeout=120,
+#         )
+#         # self.client = ChatNVIDIA(
+#         #     model=LLM_MODEL,
+#         #     api_key=NVIDIA_API_KEY,
+#         #     temperature=0.2,
+#         #     max_tokens=2048,
+#         # )
+
+
+#     def invoke(self, prompt: str) -> str:
+#         response = self.client.invoke(prompt)
+
+#         content = response.content
+
+#         if isinstance(content, str):
+#             return content.strip()
+
+#         if isinstance(content, list):
+#             parts = []
+
+#             for item in content:
+#                 if isinstance(item, str):
+#                     parts.append(item)
+#                 elif isinstance(item, dict):
+#                     text = item.get("text")
+#                     if text:
+#                         parts.append(text)
+
+#             return "\n".join(parts).strip()
+
+#         return str(content).strip()
+    
+    
+# llm = LLMClient()
+
+
+
+
+
+
+
+
 from langchain_groq import ChatGroq
+
+from app.config import GROQ_API_KEY
 
 
 class LLMClient:
     def __init__(self):
         self.client = ChatGroq(
-            # model="llama-3.3-70b-versatile",
             model="openai/gpt-oss-120b",
             api_key=GROQ_API_KEY,
             temperature=0.2,
-            max_tokens=2048,
+            # max_tokens=2048,
             timeout=120,
+            reasoning_effort="low",
         )
-        # self.client = ChatNVIDIA(
-        #     model=LLM_MODEL,
-        #     api_key=NVIDIA_API_KEY,
-        #     temperature=0.2,
-        #     max_tokens=2048,
-        # )
+
+    def invoke(self, prompt: str):
+        return self.client.invoke(prompt)
+
+    def structured(self, model):
+        return self.client.with_structured_output(
+            model,
+            method="json_schema",
+        )
 
 
-    def invoke(self, prompt: str) -> str:
-        response = self.client.invoke(prompt)
-
-        content = response.content
-
-        if isinstance(content, str):
-            return content.strip()
-
-        if isinstance(content, list):
-            parts = []
-
-            for item in content:
-                if isinstance(item, str):
-                    parts.append(item)
-                elif isinstance(item, dict):
-                    text = item.get("text")
-                    if text:
-                        parts.append(text)
-
-            return "\n".join(parts).strip()
-
-        return str(content).strip()
-    
-    
 llm = LLMClient()
-
-
