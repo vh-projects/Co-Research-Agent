@@ -66,7 +66,7 @@ class LLMClient:
             temperature=0.2,
             max_tokens=2048,
             # timeout=120,
-            reasoning_effort="low",
+            reasoning_effort="none",
         )
 
     def invoke(self, prompt: str) -> str:
