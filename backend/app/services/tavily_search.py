@@ -26,7 +26,7 @@ class TavilyService:
 
         for item in response.get("results", []):
 
-            text= item.get("raw_content" or item.get("content") or "").strip()
+            text= (item.get("raw_content") or item.get("content") or "").strip()
 
             results.append(
                 SearchResult(
