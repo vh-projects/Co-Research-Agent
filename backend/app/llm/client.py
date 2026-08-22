@@ -54,21 +54,19 @@
 
 
 from langchain_groq import ChatGroq
-
 from app.config import GROQ_API_KEY
 
 
 class LLMClient:
     def __init__(self):
         self.client = ChatGroq(
-            # model="qwen/qwen3.6-27b",
-            model="openai/gpt-oss-20b",
+            model="qwen/qwen3.6-27b",
+            # model="openai/gpt-oss-20b",
             api_key=GROQ_API_KEY,
             temperature=0.2,
-            # max_tokens=2048,
-            # timeout=120,
-            # reasoning_effort="none",
-            reasoning_effort="low", # openai
+
+            reasoning_effort="none",
+            # reasoning_effort="low", # openai
         )
 
     def invoke(self, prompt: str) -> str:

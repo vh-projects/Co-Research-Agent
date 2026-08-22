@@ -6,6 +6,7 @@ load_dotenv()
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 GROQ_API_KEY= os.getenv("GROQ_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # LLM_MODEL = "meta/llama-3.3-70b-instruct"
 LLM_MODEL = "openai/gpt-oss-120b"
