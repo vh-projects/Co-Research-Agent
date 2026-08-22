@@ -62,7 +62,7 @@ class LLMClient:
     def __init__(self):
         self.client = ChatGroq(
             # model="qwen/qwen3.6-27b",
-            model="openai/gpt-oss-20b",
+            model="minimaxai/minimax-m2.7",
             api_key=GROQ_API_KEY,
             temperature=0.2,
             # max_tokens=2048,
