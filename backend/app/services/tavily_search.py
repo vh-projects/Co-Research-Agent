@@ -32,7 +32,7 @@ class TavilyService:
                 SearchResult(
                     title=item.get("title", ""),
                     url=item.get("url", ""),
-                    content=text[:990],
+                    content=text[:880],
                     score=item.get("score", 0.0),
                 )
             )
