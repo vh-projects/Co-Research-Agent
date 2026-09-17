@@ -94,8 +94,11 @@ Evidence:
         "key_observations",
     }
 )}
+Use only supported information.
+For missing string values use "".
+For missing list values use [].
+Output only the requested structured fields.
 
-Output JSON only.
 
 Example:
 {BUSINESS_EXAMPLE}
@@ -109,7 +112,10 @@ Identify the company's business challenges.
 Business:
 {business.model_dump_json()}
 
-Output JSON only.
+Use only supported information.
+For missing string values use "".
+For missing list values use [].
+Output only the requested structured fields.
 
 Example:
 {CHALLENGES_EXAMPLE}
@@ -127,7 +133,10 @@ Challenges:
 {challenges.model_dump_json()}
 
 Prioritize high business value.
-Output JSON only.
+Use only supported information.
+For missing string values use "".
+For missing list values use [].
+Output only the requested structured fields.
 
 Example:
 {AI_OPPORTUNITIES_EXAMPLE}
@@ -154,7 +163,11 @@ AI Opportunities:
 {opportunities.model_dump_json()}
 
 Focus on business value and ROI.
-Output JSON only.
+Use only supported information.
+For missing string values use "".
+For missing list values use [].
+Output only the requested structured fields.
+
 
 Example:
 {CEO_PITCH_EXAMPLE}
