@@ -9,20 +9,36 @@ class NewsItem(BaseModel):
 
 
 class Evidence(BaseModel):
-    company_name: str
-    industry: str = ""
-    headquarters: str = ""
-    geographic_presence: list[str] = Field(default_factory=list)
-    company_size: str = ""
-    employee_count: str = ""
-    founded: str = ""
+    # company_name: str
+    # industry: str = ""
+    # headquarters: str = ""
+    # geographic_presence: list[str] = Field(default_factory=list)
+    # company_size: str = ""
+    # employee_count: str = ""
+    # founded: str = ""
 
-    products_services: list[str] = Field(default_factory=list)
-    business_model: str = ""
-    technologies_used: list[str] = Field(default_factory=list)
-    recent_news: list[NewsItem] = Field(default_factory=list)
-    key_observations: list[str] = Field(default_factory=list)
+    # products_services: list[str] = Field(default_factory=list)
+    # business_model: str = ""
+    # technologies_used: list[str] = Field(default_factory=list)
+    # recent_news: list[NewsItem] = Field(default_factory=list)
+    # key_observations: list[str] = Field(default_factory=list)
+
+    # # Attached by the application after validation.
+    # citations: list[SearchResult] = Field(default_factory=list)
+
+
+    company_name: str
+    industry: str
+    headquarters: str
+    geographic_presence: list[str]
+    company_size: str
+    employee_count: str
+    founded: str
+    products_services: list[str]
+    business_model: str 
+    technologies_used: list[str]
+    recent_news: list[NewsItem]
+    key_observations: list[str]
 
     # Attached by the application after validation.
-    citations: list[SearchResult] = Field(default_factory=list)
-
+    citations: list[SearchResult]

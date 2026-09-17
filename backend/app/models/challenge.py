@@ -8,5 +8,7 @@ class BusinessChallenge(BaseModel):
 
 
 class Challenges(BaseModel):
-    challenges: list[BusinessChallenge] = Field(default_factory=list)
+    # challenges: list[BusinessChallenge] = Field(default_factory=list)
+
+    challenges: list[BusinessChallenge]
 

@@ -98,6 +98,7 @@ class LLMClient:
         return self.client.with_structured_output(
             model,
             method="json_schema",
+            strict=True,
         )
 
 

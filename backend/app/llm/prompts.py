@@ -43,18 +43,39 @@ Example:
 """
 
 
+# def build_overview_prompt(evidence: Evidence) -> str:
+#     return f"""
+# Generate a company overview.
+
+# Evidence:
+# {evidence.model_dump_json()}
+
+# Output JSON only.
+
+# Example:
+# {OVERVIEW_EXAMPLE}
+# """
+
+
+
+
+
 def build_overview_prompt(evidence: Evidence) -> str:
     return f"""
-Generate a company overview.
+Generate a company overview from the evidence.
 
 Evidence:
 {evidence.model_dump_json()}
 
-Output JSON only.
+Use only supported information.
+For missing string values use "".
+For missing list values use [].
+Output only the requested structured fields.
 
 Example:
 {OVERVIEW_EXAMPLE}
 """
+
 
 
 def build_business_prompt(evidence: Evidence, overview: CompanyOverview,) -> str:
