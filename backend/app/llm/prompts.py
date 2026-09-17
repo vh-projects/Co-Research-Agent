@@ -42,17 +42,38 @@ Example:
 
 
 def build_overview_prompt(evidence: Evidence) -> str:
+#     return f"""
+# Generate a company overview.
+
+# Evidence:
+# {evidence.model_dump_json()}
+
+# Output JSON only.
+
+# Example:
+# {OVERVIEW_EXAMPLE}
+# """
+
+
     return f"""
-Generate a company overview.
+    Generate a company overview from the provided evidence.
 
-Evidence:
-{evidence.model_dump_json()}
+    Rules:
+    - Use only the evidence.
+    - Do not invent unsupported facts.
+    - Preserve factual information when it is available.
+    - Use "" for unavailable text fields.
+    - Use [] for unavailable list fields.
 
-Output JSON only.
+    Evidence:
+    {evidence.model_dump_json()}
+    """
 
-Example:
-{OVERVIEW_EXAMPLE}
-"""
+
+
+
+
+
 
 
 def build_business_prompt(evidence: Evidence, overview: CompanyOverview,) -> str:
