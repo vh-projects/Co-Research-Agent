@@ -55,4 +55,4 @@ class Evidence(BaseModel):
     key_observations: list[str]
 
     # Attached by the application after validation.
-    citations: list[SearchResult]
+    citations: list[SearchResult] = Field(default_factory=list)
