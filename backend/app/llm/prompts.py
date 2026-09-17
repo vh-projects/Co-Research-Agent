@@ -43,39 +43,18 @@ Example:
 """
 
 
-# def build_overview_prompt(evidence: Evidence) -> str:
-#     return f"""
-# Generate a company overview.
-
-# Evidence:
-# {evidence.model_dump_json()}
-
-# Output JSON only.
-
-# Example:
-# {OVERVIEW_EXAMPLE}
-# """
-
-
-
-
-
 def build_overview_prompt(evidence: Evidence) -> str:
     return f"""
-Generate a company overview from the evidence.
+Generate a company overview.
 
 Evidence:
 {evidence.model_dump_json()}
 
-Use only supported information.
-For missing string values use "".
-For missing list values use [].
-Output only the requested structured fields.
+Output JSON only.
 
 Example:
 {OVERVIEW_EXAMPLE}
 """
-
 
 
 def build_business_prompt(evidence: Evidence, overview: CompanyOverview,) -> str:
@@ -94,11 +73,8 @@ Evidence:
         "key_observations",
     }
 )}
-Use only supported information.
-For missing string values use "".
-For missing list values use [].
-Output only the requested structured fields.
 
+Output JSON only.
 
 Example:
 {BUSINESS_EXAMPLE}
@@ -112,10 +88,7 @@ Identify the company's business challenges.
 Business:
 {business.model_dump_json()}
 
-Use only supported information.
-For missing string values use "".
-For missing list values use [].
-Output only the requested structured fields.
+Output JSON only.
 
 Example:
 {CHALLENGES_EXAMPLE}
@@ -133,10 +106,7 @@ Challenges:
 {challenges.model_dump_json()}
 
 Prioritize high business value.
-Use only supported information.
-For missing string values use "".
-For missing list values use [].
-Output only the requested structured fields.
+Output JSON only.
 
 Example:
 {AI_OPPORTUNITIES_EXAMPLE}
@@ -163,11 +133,7 @@ AI Opportunities:
 {opportunities.model_dump_json()}
 
 Focus on business value and ROI.
-Use only supported information.
-For missing string values use "".
-For missing list values use [].
-Output only the requested structured fields.
-
+Output JSON only.
 
 Example:
 {CEO_PITCH_EXAMPLE}
