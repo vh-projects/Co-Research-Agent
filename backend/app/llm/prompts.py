@@ -34,8 +34,6 @@ Sources:
 {sources}
 
 Use only the sources.
-Missing values: "" or [].
-Exclude citations/URLs.
 Output JSON only.
 
 Example:
