@@ -10,5 +10,5 @@ class AIOpportunity(BaseModel):
 
 
 class AIOpportunities(BaseModel):
-    # opportunities: list[AIOpportunity] = Field(default_factory=list)
-    opportunities: list[AIOpportunity]
+    opportunities: list[AIOpportunity] = Field(default_factory=list)
+
